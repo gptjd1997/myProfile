@@ -1,14 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Python from "../Routes/Python";
-import Links from "../Routes/Links";
-import JS from "../Routes/JS";
+import Home from "../Routes/Home/Home";
 
-const AppRouter = ({ action }) => (
+const AppRouter = () => (
   <Switch>
-    <Route path="/" component={JS} />
-    <Route path="/Python" component={Python} />
-    <Route path="/Links" component={Links} />
+    <Route path="/" component={Home} />
   </Switch>
 );
 

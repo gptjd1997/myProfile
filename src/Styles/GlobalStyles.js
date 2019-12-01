@@ -11,6 +11,10 @@ export default createGlobalStyle`
     *{
         box-sizing:border-box;
     }
+    li{
+        ist-style:none;
+        float:left;
+    }
     body{
         
         color:${props => props.theme.blackColor};
@@ -20,12 +24,6 @@ export default createGlobalStyle`
         background-size:cover;
         background-repeat:no-repeat; 
         background-color:#E0DCBC;
-        #root{
-            display:flex;
-            align-items:center;
-            height:100vh;
-
-        }
     }
     a{
         text-decoration:none
