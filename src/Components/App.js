@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Routes from "./Routes";
 import Theme from "../Styles/Theme";
+import Header from "./Header/Header";
 
 const BackGroundBody = styled.div`
   position: fixed;
@@ -31,6 +32,7 @@ export default () => {
       <Router>
         <Wrap>
           <BackGroundBody />
+          <Header />
           <Routes />
         </Wrap>
       </Router>

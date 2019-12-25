@@ -1,32 +1,12 @@
-import React, { useEffect, useState, memo } from "react";
-import { Open, Myname, Menu, Close, Box } from "./Styles";
+import React, { useEffect, memo } from "react";
+import { Myname } from "./Styles";
 
-const Intros = [
-  "전",
-  "혜",
-  "성",
-  "&nbsp;의&nbsp;",
-  "포",
-  "트",
-  "폴",
-  "리",
-  "오"
-];
+const Intros = ["전", "혜", "성", "&nbsp;의&nbsp;", "포", "트", "폴", "리", "오"];
+
 const Home = () => {
-  const [open, setOpen] = useState(false);
-
   useEffect(() => {
     let Count = 300;
     const Intro = document.querySelector("#Intro");
-    const Cursor = Intro.querySelector("#KeyCursor");
-    Cursor.style.opacity = "0";
-    setInterval(() => {
-      if (Cursor.style.opacity === "0") {
-        Cursor.style.opacity = "1";
-      } else {
-        Cursor.style.opacity = "0";
-      }
-    }, 1000);
 
     Intros.map(IntroValue => {
       const H1 = document.createElement("h1");
@@ -35,30 +15,22 @@ const Home = () => {
 
       setTimeout(() => Intro.appendChild(H1), Count);
       Count += 200;
+      if (H1.innerHTML === "오") {
+        setInterval(() => {
+          if (H1.className === "border") {
+            H1.className = "noneBorder";
+          } else {
+            H1.className = "border";
+          }
+        }, 1000);
+      }
       return 0;
     });
   }, []);
 
   return (
     <>
-      <Myname id="Intro">
-        <h1 id="KeyCursor">Ι</h1>
-      </Myname>
-      <Menu onClick={() => (open ? setOpen(false) : setOpen(true))}>
-        {open ? (
-          <Box>
-            <Open />
-            <Open />
-            <Open />
-          </Box>
-        ) : (
-          <Box>
-            <Close />
-            <Close />
-            <Close />
-          </Box>
-        )}
-      </Menu>
+      <Myname id="Intro" />
     </>
   );
 };
